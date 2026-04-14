@@ -47,6 +47,9 @@ const config: Config = {
         'base': 'var(--transition-base)',
         'smooth': 'var(--transition-smooth)',
       },
+      maxWidth: {
+        'container': '1512px',
+      },
     },
   },
   plugins: [],

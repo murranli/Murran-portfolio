@@ -8,6 +8,8 @@ export type Locale = 'zh' | 'en';
 export interface TranslationDict {
   nav: {
     portfolio: string;
+    about: string;
+    projects: string;
   };
   hero: {
     title: string;
@@ -36,6 +38,8 @@ export const translations: Record<Locale, TranslationDict> = {
   zh: {
     nav: {
       portfolio: '作品集',
+      about: '关于我',
+      projects: '工作项目',
     },
     hero: {
       title: '你好，世界',
@@ -62,6 +66,8 @@ export const translations: Record<Locale, TranslationDict> = {
   en: {
     nav: {
       portfolio: 'Portfolio',
+      about: 'About',
+      projects: 'Projects',
     },
     hero: {
       title: 'HELLO WORLD',
