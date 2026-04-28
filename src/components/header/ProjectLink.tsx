@@ -2,6 +2,7 @@
 
 import { useTranslation } from '@/components/providers/LanguageProvider';
 import { ChevronDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 type ProjectLinkProps = {
   state?: 'hover' | 'selected';
@@ -9,8 +10,18 @@ type ProjectLinkProps = {
 };
 
 export function ProjectLink({ state = 'selected', className = '' }: ProjectLinkProps) {
+  const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
   const showChevron = state === 'selected';
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <a

@@ -1,13 +1,24 @@
 'use client';
 
 import { useTranslation } from '@/components/providers/LanguageProvider';
+import { useEffect, useState } from 'react';
 
 type LanguageSwitcherProps = {
   className?: string;
 };
 
 export function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
+  const [mounted, setMounted] = useState(false);
   const { locale, setLocale } = useTranslation();
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className={`flex items-center gap-sm ${className}`}>

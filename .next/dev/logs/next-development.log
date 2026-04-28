@@ -1,37 +1,107 @@
-[00:00:00.913] Server  LOG     ✓ Ready in 646ms
-[00:01:23.339] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:21:14.116] Server  LOG     ✓ Compiled in 708ms
-[01:21:35.583] Server  LOG     ✓ Compiled in 507ms
-[01:21:44.009] Server  LOG     ✓ Compiled in 50ms
-[01:21:58.664] Server  LOG     ✓ Compiled in 24ms
-[01:22:10.775] Server  LOG     ✓ Compiled in 11ms
-[01:22:23.755] Server  LOG     ✓ Compiled in 19ms
-[02:02:38.721] Server  LOG     ✓ Compiled in 91ms
-[02:02:49.815] Server  LOG     ✓ Compiled in 32ms
-[02:03:13.119] Server  LOG     ✓ Compiled in 36ms
-[02:06:59.509] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:16:35.648] Server  LOG     ✓ Compiled in 53ms
-[02:23:21.966] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:50:41.877] Server  LOG     ✓ Compiled in 100ms
-[02:50:50.653] Server  LOG     ✓ Compiled in 42ms
-[02:51:00.474] Server  LOG     ✓ Compiled in 17ms
-[03:00:48.611] Server  LOG     ✓ Compiled in 44ms
-[03:01:01.683] Server  LOG     ✓ Compiled in 25ms
-[03:01:08.324] Server  LOG     ✓ Compiled in 30ms
-[03:01:20.928] Server  LOG     ✓ Compiled in 15ms
-[03:05:12.413] Server  LOG     ✓ Compiled in 37ms
-[03:05:18.304] Server  LOG     ✓ Compiled in 24ms
-[03:05:24.331] Server  LOG     ✓ Compiled in 23ms
-[03:22:43.575] Server  LOG     ✓ Compiled in 35ms
-[03:27:30.784] Server  LOG     ✓ Compiled in 19ms
-[03:27:36.679] Server  LOG     ✓ Compiled in 35ms
-[03:27:42.227] Server  LOG     ✓ Compiled in 27ms
-[03:27:49.218] Server  LOG     ✓ Compiled in 29ms
-[03:27:56.463] Server  LOG     ✓ Compiled in 48ms
-[03:28:54.520] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:35:27.190] Server  LOG     ✓ Compiled in 49ms
-[03:35:39.631] Server  LOG     ✓ Compiled in 22ms
-[03:35:58.666] Server  LOG     ✓ Compiled in 11ms
-[03:36:37.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:36:57.284] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:37:49.581] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.957] Server  LOG     ✓ Ready in 706ms
+[00:09:50.504] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerLayoutRouter url={"/?id=ddd..."} tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+      <SegmentViewNode type="page" pagePath="page.tsx">
+        <SegmentTrieNode>
+        <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+          <Home params={Promise} searchParams={Promise}>
+            <div className="bg-backgro...">
+              <Header>
+                <header className="fixed top-...">
+                  <div className="h-[86px] m...">
+                    <div>
+                    <div className="flex items...">
+                      <LanguageSwitcher>
+                      <ThemeButton state="selected">
+                        <button onClick={function handleToggle} className={"\n      ..."} aria-label="Toggle theme">
+                          <Sun className="w-5 h-5 te...">
+                            <svg
+                              ref={null}
+                              xmlns="http://www.w3.org/2000/svg"
+                              width={24}
+                              height={24}
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
++                             className="lucide lucide-sun w-5 h-5 text-text-primary"
+-                             className="lucide lucide-moon w-5 h-5 text-text-primary"
+                              aria-hidden="true"
+                            >
++                             <circle cx="12" cy="12" r="4">
+-                             <path
+-                               d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268..."
+-                             >
+                              ...
+              ...
+      ...
+
+[00:09:55.617] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+      <SegmentViewNode type="page" pagePath="page.tsx">
+        <SegmentTrieNode>
+        <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+          <Home params={Promise} searchParams={Promise}>
+            <div className="bg-backgro...">
+              <Header>
+                <header className="fixed top-...">
+                  <div className="h-[86px] m...">
+                    <div>
+                    <div className="flex items...">
+                      <LanguageSwitcher>
+                      <ThemeButton state="selected">
+                        <button onClick={function handleToggle} className={"\n      ..."} aria-label="Toggle theme">
+                          <Sun className="w-5 h-5 te...">
+                            <svg
+                              ref={null}
+                              xmlns="http://www.w3.org/2000/svg"
+                              width={24}
+                              height={24}
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
++                             className="lucide lucide-sun w-5 h-5 text-text-primary"
+-                             className="lucide lucide-moon w-5 h-5 text-text-primary"
+                              aria-hidden="true"
+                            >
++                             <circle cx="12" cy="12" r="4">
+-                             <path
+-                               d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268..."
+-                             >
+                              ...
+              ...
+      ...
+
+[00:21:37.482] Server  LOG     ✓ Compiled in 143ms
+[00:21:57.727] Server  LOG     ✓ Compiled in 18ms
+[00:22:11.206] Server  LOG     ✓ Compiled in 19ms
+[00:22:26.155] Server  LOG     ✓ Compiled in 16ms

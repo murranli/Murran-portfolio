@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 type ThemeButtonProps = {
   state?: 'hover' | 'selected';
@@ -9,7 +10,18 @@ type ThemeButtonProps = {
 };
 
 export function ThemeButton({ state = 'selected', className = '' }: ThemeButtonProps) {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   const isDark = theme === 'dark';
 
   const handleToggle = () => {

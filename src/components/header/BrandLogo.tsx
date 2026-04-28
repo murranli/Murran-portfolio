@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslation } from '@/components/providers/LanguageProvider';
+import { useEffect, useState } from 'react';
 
 type BrandLogoProps = {
   state?: 'selected' | 'unselected';
@@ -8,8 +9,18 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({ state = 'selected', className = '' }: BrandLogoProps) {
+  const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
   const isSelected = state === 'selected';
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <a
